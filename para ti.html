@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Amor 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .carta-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carta-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #ff8e8e, #ffa8a8);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .titulo {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitulo {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        
+        .contenido {
+            line-height: 1.8;
+            color: #2c3e50;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+        
+        .parrafo {
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .parrafo:nth-child(1) { animation-delay: 0.2s; }
+        .parrafo:nth-child(2) { animation-delay: 0.4s; }
+        .parrafo:nth-child(3) { animation-delay: 0.6s; }
+        .parrafo:nth-child(4) { animation-delay: 0.8s; }
+        .parrafo:nth-child(5) { animation-delay: 1s; }
+        
+        .destacado {
+            background: linear-gradient(120deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 4px solid #ff6b6b;
+            position: relative;
+        }
+        
+        .destacado::before {
+            content: '💕';
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            font-size: 2em;
+        }
+        
+        .lista-amor {
+            background: rgba(255, 107, 107, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .lista-amor ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .lista-amor li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .lista-amor li::before {
+            content: '💖';
+            position: absolute;
+            left: 0;
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+        
+        .firma {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #ff6b6b;
+        }
+        
+        .nombre {
+            font-size: 1.5em;
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .fecha {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        
+        .corazones {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .corazon {
+            position: absolute;
+            font-size: 20px;
+            animation: flotar 6s ease-in-out infinite;
+            opacity: 0.3;
+        }
+        
+        .corazon:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .corazon:nth-child(2) { left: 80%; animation-delay: 2s; }
+        .corazon:nth-child(3) { left: 50%; animation-delay: 4s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        @media (max-width: 600px) {
+            .carta-container {
+                padding: 25px;
+                margin: 10px;
+            }
+            
+            .titulo {
+                font-size: 2em;
+            }
+            
+            .contenido {
+                font-size: 1em;
+            }
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="carta-container">
+        <div class="corazones">
+            <div class="corazon">💕</div>
+            <div class="corazon">💖</div>
+            <div class="corazon">💝</div>
+        </div>
+        
+        <div class="header">
+            <h1 class="titulo">para ti  💕</h1>
+            
+        </div>
+        
+        <div class="contenido">
+            <div class="parrafo">
+                Primero 1 de agosto bb aun  recuerdo cuando llegaste a mi vida literal hiciste un gran cambio en toda esta vida que he pasado a tu lado,
+            </div>
+            
+            <div class="parrafo">
+                Desde que llegaste a mi vida, todo cambió. Ya no veo el mundo de la misma ah ora es mas maravillozo 
+            </div>
+            
+            <div class="destacado">
+                <strong>Eres la mejor novia del mundo </strong>  aunque esté lejos de ti, siento que estás cerca de mí siento ti cariño y tu amor 
+            </div>
+            
+            <div class="parrafo">
+                se que llegué tarde para ser tu primer amor pero justo a tiempo para hacer el de toda tu vida, sé que a veces pasamos momentos muy difíciles y a veces no nos entendemos, pero lo importante es que siempre estamos juntos, sin importar la situación que pase, o que suceda, sé que es lo mismo, pero je je
+            </div>
+            
+            <div class="lista-amor">
+                <p><strong>Quiero que sepas que:</strong></p>
+                <ul>
+                    <li>Eres mi persona favorita en todo el universo</li>
+                    <li>Contigo he encontrado mi hogar</li>
+                    <li>Amo cada pequeño detalle tuyo</li>
+                    <li>Mi corazón te pertenece completamente</li>
+                </ul>
+            </div>
+            
+            <div class="parrafo">
+                solamente vengo a felicitarte por el día de la novia, y agradecerte por siempre estar conmigo y aguantarme como soy, gracias por cuidar mi corazoncito bb se que esta en un lugar muy seguro contigo   Te amo mi niña preciosa y feliz día de la novia 💕
+
+            </div>
+            
+            <div class="parrafo">
+                Gracias por amarme tal como soy, te amo mucho mi niña 
+            </div>
+        </div>
+        
+        <div class="firma">
+            <div class="nombre">Con todo mi amor eterno ❤️</div>
+            <div class="fecha">Tuyo/a para siempre</div>
+            
+            <a href="whatsapp://esnd?💕" class="btn-whatsapp">
+                💌 Compartir en WhatsApp
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        // Efecto de escritura
+        document.addEventListener('DOMContentLoaded', function() {
+            // Agregar más corazones dinámicamente
+            const corazones = document.querySelector('.corazones');
+            const emojis = ['💕', '💖', '💝', '💗', '💘', '💙', '💜'];
+            
+            setInterval(() => {
+                if (Math.random() > 0.7) {
+                    const corazon = document.createElement('div');
+                    corazon.className = 'corazon';
+                    corazon.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    corazon.style.left = Math.random() * 100 + '%';
+                    corazon.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                    corazones.appendChild(corazon);
+                    
+                    setTimeout(() => {
+                        corazon.remove();
+                    }, 6000);
+                }
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
